@@ -34,6 +34,11 @@ use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\LocaleController;
 
+// Test route
+Route::get('/test', function () {
+    return 'TEST ROUTE WORKS - ' . now();
+});
+
 // Homepage
 Route::get('/', function () {
     $brands = Brand::all()->sortBy('name');
@@ -41,6 +46,9 @@ Route::get('/', function () {
     $currentDate = now()->format('d-m-Y');
     $totalBrands = $brands->count();
     $welcomeMessage = 'Welkom bij de 4S Manuals database!';
+    
+    // Debug: Log that we're hitting this route
+    \Log::info('Homepage route hit at: ' . now());
     
     return view('pages.homepage', compact('brands', 'developerName', 'currentDate', 'totalBrands', 'welcomeMessage'));
 })->name('home');
