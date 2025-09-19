@@ -34,23 +34,57 @@ use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\LocaleController;
 
-// Test route
-Route::get('/test', function () {
-    return 'TEST ROUTE WORKS - ' . now();
+// Test route for debugging
+Route::get('/debug', function () {
+    return '<h1>DEBUG TEST</h1><p>If you see this, Laravel is working!</p><p>Time: ' . now() . '</p>';
 });
 
-// Homepage
+// Homepage - SIMPLIFIED VERSION
 Route::get('/', function () {
     $brands = Brand::all()->sortBy('name');
-    $developerName = 'Petar'; // Developer name for the homepage
+    $developerName = 'Petar';
     $currentDate = now()->format('d-m-Y');
     $totalBrands = $brands->count();
     $welcomeMessage = 'Welkom bij de 4S Manuals database!';
     
-    // Debug: Log that we're hitting this route
-    \Log::info('Homepage route hit at: ' . now());
+    // Return simple HTML with developer info
+    $html = '<!DOCTYPE html>
+<html>
+<head>
+    <title>Download your manual</title>
+    <link href="/css/app.css" rel="stylesheet">
+</head>
+<body>
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Download your manual</h1>
+            <p>Free user guides for all brands and devices!</p>
+            
+            <!-- DEVELOPER INFO - TICKET 04 -->
+            <div style="background: #d1ecf1; border: 2px solid #bee5eb; padding: 15px; margin: 15px 0; border-radius: 5px;">
+                <h4 style="color: #0c5460; margin-top: 0;">👋 Hallo! Ik ben ' . $developerName . '</h4>
+                <p style="margin: 5px 0;"><strong>Welkom:</strong> ' . $welcomeMessage . '</p>
+                <p style="margin: 5px 0;"><strong>Vandaag:</strong> ' . $currentDate . '</p>
+                <p style="margin: 5px 0 0 0;"><strong>Beschikbare merken:</strong> ' . $totalBrands . ' verschillende merken</p>
+            </div>
+        </div>
+    </div>
     
-    return view('pages.homepage', compact('brands', 'developerName', 'currentDate', 'totalBrands', 'welcomeMessage'));
+    <div class="container">
+        <h2>All Brands</h2>
+        <div class="row">';
+    
+    foreach($brands->chunk(ceil($brands->count() / 3)) as $chunk) {
+        $html .= '<div class="col-md-4"><ul>';
+        foreach($chunk as $brand) {
+            $html .= '<li><a href="/' . $brand->id . '/' . $brand->getNameUrlEncodedAttribute() . '/">' . $brand->name . '</a></li>';
+        }
+        $html .= '</ul></div>';
+    }
+    
+    $html .= '</div></div></body></html>';
+    
+    return $html;
 })->name('home');
 
 Route::get('/manual/{language}/{brand_slug}/', [RedirectController::class, 'brand']);
