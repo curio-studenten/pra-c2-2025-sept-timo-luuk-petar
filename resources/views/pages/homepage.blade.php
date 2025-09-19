@@ -5,12 +5,12 @@
         <p>{{ __('introduction_texts.homepage_line_2') }}</p>
         <p>{{ __('introduction_texts.homepage_line_3') }}</p>
         
-        <!-- Developer info section - TICKET 04 -->
-        <div style="background: #d1ecf1; border: 2px solid #bee5eb; padding: 15px; margin: 15px 0; border-radius: 5px;">
-            <h4 style="color: #0c5460; margin-top: 0;">👋 Hallo! Ik ben {{ $developerName ?? 'Petar' }}</h4>
-            <p style="margin: 5px 0;"><strong>Welkom:</strong> {{ $welcomeMessage ?? 'Welkom bij de 4S Manuals database!' }}</p>
-            <p style="margin: 5px 0;"><strong>Vandaag:</strong> {{ $currentDate ?? now()->format('d-m-Y') }}</p>
-            <p style="margin: 5px 0 0 0;"><strong>Beschikbare merken:</strong> {{ $totalBrands ?? '0' }} verschillende merken</p>
+        <!-- Developer info section -->
+        <div class="alert alert-info mt-3">
+            <h4>👋 Hallo! Ik ben {{ $developerName }}</h4>
+            <p class="mb-1"><strong>Welkom:</strong> {{ $welcomeMessage }}</p>
+            <p class="mb-1"><strong>Vandaag:</strong> {{ $currentDate }}</p>
+            <p class="mb-0"><strong>Beschikbare merken:</strong> {{ $totalBrands }} verschillende merken</p>
         </div>
     </x-slot:introduction_text>
 
@@ -19,6 +19,7 @@
             {{ __('misc.all_brands') }}
         </x-slot:title>
     </h1>
+
 
     <?php
     $size = count($brands);
