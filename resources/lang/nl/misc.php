@@ -14,13 +14,13 @@ return [
     */
 
     'home' => "Hoofdpagina",
-'home_alt' => "Download je handleiding: Gratis gebruikersgidsen!",
-'homepage_title' => "Download je handleiding",
-'copyright' => "Copyright 2017 Avarix",
-'download_manual' => "Klik hier om je handleiding te downloaden",
-'download_manual_alt' => "Klik hier om je handleiding te downloaden",
-'view_manual' => "Bekijk direct je handleiding",
-'view_manual_alt' => "Bekijk direct je handleiding",
-'all_brands' => "Alle merken",
+    'home_alt' => "Download je handleiding: Gratis gebruikersgidsen!",
+    'homepage_title' => "Download je handleiding",
+    'copyright' => "© Copyright 2025 Avarix",
+    'download_manual' => "Klik hier om je handleiding te downloaden",
+    'download_manual_alt' => "Klik hier om je handleiding te downloaden",
+    'view_manual' => "Bekijk direct je handleiding",
+    'view_manual_alt' => "Bekijk direct je handleiding",
+    'all_brands' => "Alle merken",
 
 ];
