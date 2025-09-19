@@ -1,12 +1,15 @@
-
-<footer>
-	© {{ __('misc.copyright') }}
+<footer class="footer bg-dark text-white py-3 mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                {{ __('misc.copyright') }}
+            </div>
+        </div>
+    </div>
 </footer>
-
 
 <!-- analytics code -->              
 <script type="text/javascript">
-
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-30506707-1']);
   _gaq.push(['_trackPageview']);
@@ -20,9 +23,7 @@
 <!-- Einde analytics code -->
 
 <script language="Javascript" type="text/javascript"> 
- 
  if (top.location!= self.location) { 
   top.location = self.location.href
  } 
- 
 </script>
