@@ -37,7 +37,12 @@ use App\Http\Controllers\LocaleController;
 // Homepage
 Route::get('/', function () {
     $brands = Brand::all()->sortBy('name');
-    return view('pages.homepage', compact('brands'));
+    $developerName = 'Petar'; // Developer name for the homepage
+    $currentDate = now()->format('d-m-Y');
+    $totalBrands = $brands->count();
+    $welcomeMessage = 'Welkom bij de 4S Manuals database!';
+    
+    return view('pages.homepage', compact('brands', 'developerName', 'currentDate', 'totalBrands', 'welcomeMessage'));
 })->name('home');
 
 Route::get('/manual/{language}/{brand_slug}/', [RedirectController::class, 'brand']);

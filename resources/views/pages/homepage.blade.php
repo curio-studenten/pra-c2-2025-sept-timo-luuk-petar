@@ -4,6 +4,14 @@
         <p><img src="img/afbl_logo.png" align="right" width="100" height="100">{{ __('introduction_texts.homepage_line_1') }}</p>
         <p>{{ __('introduction_texts.homepage_line_2') }}</p>
         <p>{{ __('introduction_texts.homepage_line_3') }}</p>
+        
+        <!-- Developer info section -->
+        <div class="alert alert-info mt-3">
+            <h4>👋 Hallo! Ik ben {{ $developerName }}</h4>
+            <p class="mb-1"><strong>Welkom:</strong> {{ $welcomeMessage }}</p>
+            <p class="mb-1"><strong>Vandaag:</strong> {{ $currentDate }}</p>
+            <p class="mb-0"><strong>Beschikbare merken:</strong> {{ $totalBrands }} verschillende merken</p>
+        </div>
     </x-slot:introduction_text>
 
     <h1>
