@@ -8,5 +8,6 @@
 {{ $head ?? '' }}
 
 <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 
 <title>Download your manual: Free user guides for all brands and devices!</title>

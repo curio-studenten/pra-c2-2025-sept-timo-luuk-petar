@@ -10023,5 +10023,88 @@ a.text-dark:hover, a.text-dark:focus {
 .breadcrumb > li + li:before {
     padding: 0 5px;
     color: #ccc;
-    content: "/ ";
+    content: "/ ";
+}
+
+/* Ticket 7: Professional Manual Button Styling */
+.manual-buttons-container {
+    margin-top: 20px;
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 30px !important;
+    align-items: flex-start !important;
+}
+
+.manual-button-wrapper {
+    display: inline-block !important;
+    margin-right: 30px !important;
+    margin-bottom: 30px !important;
+}
+
+.manual-button {
+    min-width: 180px;
+    max-width: 200px;
+    text-align: left;
+    padding: 10px 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    font-size: 0.9em;
+    vertical-align: top;
+}
+
+.manual-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-decoration: none;
+}
+
+.manual-button i {
+    margin-right: 8px;
+    font-size: 1.1em;
+}
+
+.manual-button small {
+    font-size: 0.85em;
+    margin-top: 5px;
+    display: block;
+}
+
+.manual-download-btn {
+    min-width: 250px;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+}
+
+.manual-download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    text-decoration: none;
+}
+
+.manual-download-btn i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.manual-actions {
+    margin: 30px 0;
+}
+
+.manual-view-container {
+    text-align: center;
+}
+
+.manual-iframe {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }

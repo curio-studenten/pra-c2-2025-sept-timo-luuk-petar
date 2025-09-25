@@ -14,16 +14,31 @@
     <p>{{ __('introduction_texts.type_list', ['brand'=>$brand->name]) }}</p>
 
 
-        @foreach ($manuals as $manual)
-
-            @if ($manual->locally_available)
-                <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/{{ $manual->id }}/" alt="{{ $manual->name }}" title="{{ $manual->name }}">{{ $manual->name }}</a>
-                ({{$manual->filesize_human_readable}})
-            @else
-                <a href="{{ $manual->url }}" target="new" alt="{{ $manual->name }}" title="{{ $manual->name }}">{{ $manual->name }}</a>
-            @endif
-
-            <br />
-        @endforeach
+        <div class="manual-buttons-container" style="display: flex !important; flex-wrap: wrap !important; gap: 30px !important; margin-top: 20px;">
+            @foreach ($manuals as $manual)
+                <div class="manual-button-wrapper" style="display: inline-block !important; margin-right: 30px !important; margin-bottom: 30px !important;">
+                    @if ($manual->locally_available)
+                        <a href="/{{ $brand->id }}/{{ $brand->getNameUrlEncodedAttribute() }}/{{ $manual->id }}/" 
+                           class="btn btn-primary manual-button" 
+                           style="min-width: 180px; max-width: 200px; padding: 10px 15px; border-radius: 6px; display: inline-block !important;"
+                           alt="{{ $manual->name }}" 
+                           title="{{ $manual->name }}">
+                            <i class="fas fa-file-pdf"></i> {{ $manual->name }}
+                            <small class="d-block text-muted">{{$manual->filesize_human_readable}}</small>
+                        </a>
+                    @else
+                        <a href="{{ $manual->url }}" 
+                           target="new" 
+                           class="btn btn-primary manual-button" 
+                           style="min-width: 180px; max-width: 200px; padding: 10px 15px; border-radius: 6px; display: inline-block !important;"
+                           alt="{{ $manual->name }}" 
+                           title="{{ $manual->name }}">
+                            <i class="fas fa-download"></i> {{ $manual->name }}
+                            <small class="d-block" style="color: white !important;">Externe link</small>
+                        </a>
+                    @endif
+                </div>
+            @endforeach
+        </div>
 
 </x-layouts.app>
