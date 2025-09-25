@@ -2,22 +2,6 @@
 <html lang="en">
 <head>
     <x-head/>
-    <style>
-        /* Footer */
-        html {
-            position: relative;
-            min-height: 100%;
-        }
-        body {
-            margin-bottom: 60px;
-        }
-        .footer {
-            width: 100%;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-        }
-    </style>
 </head>
 <body>
 
@@ -47,11 +31,17 @@
 				</li>
                 {{ $breadcrumb ?? '' }}
             </ul>
-        </div>
-    </div>
-</div>
 
-<x-footer/>
+        </div>
+
+        <div class="row">
+            <x-footer/>
+        </div>
+
+    </div>
+
+
+</div>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
