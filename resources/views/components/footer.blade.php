@@ -1,7 +1,7 @@
-<footer class="footer bg-dark text-white py-3 mt-4">
+<footer class="footer bg-dark text-white py-3">
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col-md-8">
                 {{ __('misc.copyright') }}
             </div>
         </div>
