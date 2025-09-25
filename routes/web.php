@@ -34,20 +34,14 @@ use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\LocaleController;
 
-// Test route for debugging
-Route::get('/debug', function () {
-    return '<h1>DEBUG TEST</h1><p>If you see this, Laravel is working!</p><p>Time: ' . now() . '</p>';
-});
+
 
 // Homepage
 Route::get('/', function () {
     $brands = Brand::all()->sortBy('name');
     $developerName = 'Petar';
-    $currentDate = now()->format('d-m-Y');
-    $totalBrands = $brands->count();
-    $welcomeMessage = 'Welkom bij de 4S Manuals database!';
-    return view('pages.homepage', compact('brands', 'developerName', 'currentDate', 'totalBrands', 'welcomeMessage'));
-
+    
+    return view('pages.homepage', compact('brands', 'developerName'));
 })->name('home');
 
 Route::get('/manual/{language}/{brand_slug}/', [RedirectController::class, 'brand']);

@@ -5,17 +5,6 @@
         <p>{{ __('introduction_texts.homepage_line_2') }}</p>
         <p>{{ __('introduction_texts.homepage_line_3') }}</p>
         
-        <div style="background: red; color: white; padding: 20px; font-size: 24px; text-align: center; margin: 20px 0; border: 5px solid yellow;">
-            🚨 TICKET 04 TEST - IF YOU SEE THIS IT WORKS! 🚨
-        </div>
-        
-        <!-- Developer info section -->
-        <div class="alert alert-info mt-3" style="background: #d1ecf1; border: 1px solid #bee5eb; padding: 15px; margin: 15px 0;">
-            <h4 style="color: #0c5460; margin-top: 0;">👋 Hallo! Ik ben Petar</h4>
-            <p style="margin: 5px 0;"><strong>Welkom:</strong> Welkom bij de 4S Manuals database!</p>
-            <p style="margin: 5px 0;"><strong>Vandaag:</strong> 19-09-2025</p>
-            <p style="margin: 5px 0 0 0;"><strong>Beschikbare merken:</strong> 43 verschillende merken</p>
-        </div>
     </x-slot:introduction_text>
 
     <h1>
@@ -24,6 +13,8 @@
         </x-slot:title>
     </h1>
 
+    <!-- Developer info - TICKET 04 -->
+    <p><strong>Hallo! Ik ben {{ $developerName ?? 'Petar' }}</strong></p>
 
     <?php
     $size = count($brands);
