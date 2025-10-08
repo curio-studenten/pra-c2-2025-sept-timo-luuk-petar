@@ -33,16 +33,18 @@ use App\Http\Controllers\ManualController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\LocaleController;
+use App\Http\Controllers\HomeController;
 
 
-
-// Homepage
-Route::get('/', function () {
-    $brands = Brand::all()->sortBy('name');
-    $developerName = 'Petar';
+// // Homepage
+// Route::get('/', function () {
+//     $brands = Brand::all()->sortBy('name');
+//     $developerName = 'Petar';
     
-    return view('pages.homepage', compact('brands', 'developerName'));
-})->name('home');
+// //     return view('pages.homepage', compact('brands', 'developerName', 'populairBrands'));
+// // })->name('home');
+
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/manual/{language}/{brand_slug}/', [RedirectController::class, 'brand']);
 Route::get('/manual/{language}/{brand_slug}/brand.html', [RedirectController::class, 'brand']);

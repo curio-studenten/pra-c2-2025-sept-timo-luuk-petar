@@ -15,4 +15,9 @@ class Brand extends Model
 
         return $name_url_encoded;
     }
+
+    public function manuals()
+    {
+        return $this->hasMany(Manual::class);
+    }
 }

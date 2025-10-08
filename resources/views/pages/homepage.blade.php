@@ -13,6 +13,23 @@
         </x-slot:title>
     </h1>
 
+    <table cellpadding="8" cellspacing="0">
+        <p>Top 10 meest populaire handleidingen</p>
+        <thead>
+            <tr>
+                <th>Naam</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($popularManuals as $manual)
+                <tr>
+                    <td>{{ $manual->name }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+
+
     <!-- Developer info - TICKET 04 -->
     <p><strong>Hallo! Ik ben {{ $developerName ?? 'Petar' }}</strong></p>
 
