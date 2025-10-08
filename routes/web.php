@@ -57,6 +57,10 @@ Route::get('/language/{language_slug}/', [LocaleController::class, 'changeLocale
 // List of manuals for a brand
 Route::get('/{brand_id}/{brand_slug}/', [BrandController::class, 'show']);
 
+// List of brands starting with a specific letter
+Route::get('/brands/{letter}', [HomeController::class, 'showByLetter'])->name('brands.byLetter');
+
+
 // Detail page for a manual
 Route::get('/{brand_id}/{brand_slug}/{manual_id}/', [ManualController::class, 'show']);
 

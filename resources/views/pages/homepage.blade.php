@@ -6,8 +6,23 @@
         </x-slot:title>
     </h1>
 
+    <h2>Alle merklatters</h2>
+
+
+    <div class="brand-letters" style="display: flex; flex-wrap: wrap; gap: 20px; font-size: 1.5rem;">
+        @foreach($letters as $letter)
+            <a href="#{{ $letter }}"
+            style="width: 40px; text-align: center; font-weight: bold; text-decoration: none; color: #007bff;">
+                {{ $letter }}
+            </a>
+        @endforeach
+    </div>
+
+    <hr style="margin: 30px 0;">
+
+    <h2>Populaire merken</h2>
+
     <table cellpadding="8" cellspacing="0">
-        <p>Top 10 meest populaire handleidingen</p>
         <thead>
             <tr>
                 <th>Naam</th>
@@ -45,11 +60,12 @@
                             <?php
                             $current_first_letter = strtoupper(substr($brand->name, 0, 1));
 
-                            if (!isset($header_first_letter) || (isset($header_first_letter) && $current_first_letter != $header_first_letter)) {
+                             if (!isset($header_first_letter) || (isset($header_first_letter) && $current_first_letter != $header_first_letter)) {
                                 echo '</ul>
-						<h2>' . $current_first_letter . '</h2>
-						<ul>';
+                                <h2 id="' . $current_first_letter . '">' . $current_first_letter . '</h2>
+                                <ul>';
                             }
+
                             $header_first_letter = $current_first_letter
                             ?>
 

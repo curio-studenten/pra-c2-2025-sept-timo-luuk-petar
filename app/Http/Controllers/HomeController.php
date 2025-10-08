@@ -20,13 +20,43 @@ class HomeController extends Controller
         $populairBrands = populair_brands::all();
 
         $popularManuals = Manual::orderBy('downloadCount', 'desc')->take(10)->get();
-        
+
+        $letters = $brands->pluck('name')
+            ->map(fn($name) => strtoupper(substr($name, 0, 1)))
+            ->unique()
+            ->sort()
+            ->values();
+
         return view('pages.homepage', [
             'brands' => $brands,
             'populairBrands' => $populairBrands,
             'developerName' => 'Petar',
             'manuals' => $manuals,
-            'popularManuals' => $popularManuals
+            'popularManuals' => $popularManuals,
+            'letters' => $letters
+        ]);
+    }
+
+    public function showByLetter($letter)
+    {
+        $letter = strtoupper($letter);
+
+        $brands = Brand::where('name', 'LIKE', $letter . '%')
+            ->orderBy('name')
+            ->get();
+
+        $allBrands = Brand::all()->sortBy('name');
+        $letters = $allBrands->pluck('name')
+            ->map(fn($name) => strtoupper(substr($name, 0, 1)))
+            ->unique()
+            ->sort()
+            ->values();
+
+        return view('pages.brands_by_letter', [
+            'brands' => $brands,
+            'letter' => $letter,
+            'letters' => $letters,
+            'developerName' => 'Petar',
         ]);
     }
 }
