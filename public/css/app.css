@@ -10108,3 +10108,18 @@ a.text-dark:hover, a.text-dark:focus {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
+
+/* TICKET 03 - Stap 1: Introduction tekst groter maken */
+.introduction-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+/* TICKET 03 - Stap 3: Brand lijst gekleurde achtergrond */
+body .content-wrapper .container {
+    background-color: #ecf0f1 !important;
+    padding: 20px !important;
+    border-radius: 8px !important;
+    margin-top: 10px !important;
+}
