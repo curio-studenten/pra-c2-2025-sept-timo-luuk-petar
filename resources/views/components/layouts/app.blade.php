@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}">
 <head>
     <x-head/>
     <style>
@@ -13,6 +13,13 @@
         }
         .footer {
             margin-top: auto;
+        }
+        .language-switcher a {
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .language-switcher a:hover {
+            color: #ccc !important;
         }
     </style>
 </head>

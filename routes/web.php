@@ -44,7 +44,7 @@ use App\Http\Controllers\HomeController;
 // //     return view('pages.homepage', compact('brands', 'developerName', 'populairBrands'));
 // // })->name('home');
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/manual/{language}/{brand_slug}/', [RedirectController::class, 'brand']);
 Route::get('/manual/{language}/{brand_slug}/brand.html', [RedirectController::class, 'brand']);
@@ -57,9 +57,13 @@ Route::get('/language/{language_slug}/', [LocaleController::class, 'changeLocale
 // List of manuals for a brand
 Route::get('/{brand_id}/{brand_slug}/', [BrandController::class, 'show']);
 
-// List of brands starting with a specific letter
-Route::get('/brands/{letter}', [HomeController::class, 'showByLetter'])->name('brands.byLetter');
+// List of brands starting with a specific letter (SEO optimized URL)
+Route::get('/{letter}', [HomeController::class, 'showByLetter'])
+    ->name('brands.byLetter')
+    ->where('letter', '[A-Za-z]');
 
+// Old route for backwards compatibility
+Route::get('/brands/{letter}', [HomeController::class, 'showByLetter']);
 
 // Detail page for a manual
 Route::get('/{brand_id}/{brand_slug}/{manual_id}/', [ManualController::class, 'show']);

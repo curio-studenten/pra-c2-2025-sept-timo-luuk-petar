@@ -6,7 +6,7 @@
         </x-slot:title>
     </h1>
 
-    <h2>Alle merklatters</h2>
+    <h2>Alle merkletters</h2>
 
 
     <div class="brand-letters" style="display: flex; flex-wrap: wrap; gap: 20px; font-size: 1.5rem;">
@@ -62,7 +62,7 @@
 
                              if (!isset($header_first_letter) || (isset($header_first_letter) && $current_first_letter != $header_first_letter)) {
                                 echo '</ul>
-                                <h2 id="' . $current_first_letter . '">' . $current_first_letter . '</h2>
+                                <h2 id="' . $current_first_letter . '"><a href="' . route('brands.byLetter', ['letter' => $current_first_letter]) . '">' . $current_first_letter . '</a></h2>
                                 <ul>';
                             }
 
